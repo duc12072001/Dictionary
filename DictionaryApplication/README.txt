@@ -1,0 +1,1 @@
+thêm hoặc sửa từ theo mẫu(định nghĩa):/phát âm/ * từ loại - nghĩa
