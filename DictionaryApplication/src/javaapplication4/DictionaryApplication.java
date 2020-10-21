@@ -434,11 +434,18 @@ public class DictionaryApplication extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int index = jList1.getSelectedIndex();
-        if (index != -1) { 
-            listModel.remove(index);
-            words.remove(index);
-            outToFile();
+        String s = jList1.getSelectedValue();
+        int count = 0;
+        for(int i=0; i<words.size(); i++){
+            if(s.equals((words).get(i).getWord_target())){
+                count = i;
+                break;
+            }
         }
+        listModel.remove(index);
+        words.remove(count);
+        jList1.setModel(listModel);
+        outToFile();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -501,10 +508,16 @@ public class DictionaryApplication extends javax.swing.JFrame {
         new_word.setWord_target(jList1.getSelectedValue());
         String s = vnmeses.get(new_word.getWord_target());
         int index = jList1.getSelectedIndex();
-        if (index != -1) { 
-            listModel.remove(index);
-            words.remove(index);
+        String str = jList1.getSelectedValue();
+        int count = 0;
+        for(int i=0; i<words.size(); i++){
+            if(str.equals((words).get(i).getWord_target())){
+                count = i;
+                break;
+            }
         }
+        listModel.remove(index);
+        words.remove(count);
         new_word.setWord_explain(jTextField4.getText());
         vnmeses.put(new_word.getWord_target(), new_word.getWord_explain());
         words.add(index, new_word);
